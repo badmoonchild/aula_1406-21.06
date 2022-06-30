@@ -79,7 +79,26 @@ public class App {
 
         for (int i = 0; i < guardaconta.size(); i++){
 
-            if(numeroDaConta.equals(guardaconta.get(i))){ // 
+            if(numeroDaConta == (guardaconta.get(i))){ // 
+
+                erro = true; 
+
+            }else{
+
+                erro = false; 
+            }
+        }
+
+        return erro;  
+    }
+
+    public static boolean comparaAgencia (int agencia, ArrayList<Integer> guardaAgencia) {
+
+        boolean erro = false; 
+
+        for (int i = 0; i < guardaAgencia.size(); i++){
+
+            if(agencia == (guardaAgencia.get(i))){ // 
 
                 erro = true; 
 
@@ -112,6 +131,7 @@ public class App {
         double salario;
         ArrayList <String> guardacpf = new ArrayList<>(); // 
         ArrayList <Integer> guardaconta = new ArrayList<>(); // 
+        ArrayList <Integer> guardaAgencia = new ArrayList<>(); // 
 
         do {
             System.out.println(menuGeral());
@@ -173,7 +193,7 @@ public class App {
                             // c
                             //comparaconta(cpf, guardacpf);
                             while(comparaconta(numeroDaConta, guardaconta)){
-                            System.out.println("Nao foi possivel efetuar, CPF ja existente no banco de cadastro");
+                            System.out.println("Nao foi possivel efetuar, conta ja existente no banco de cadastro");
                             numeroDaConta = scan.nextInt();
                             } 
                     
@@ -183,6 +203,14 @@ public class App {
                             scan.nextLine();
                             System.out.println("Digite a agência:");
                             agencia = scan.nextInt();
+                            //
+                            while(comparaAgencia(agencia, guardaAgencia)){
+                                System.out.println("Nao foi possivel efetuar, numero de Agencia ja existente no banco de cadastro");
+                                agencia = scan.nextInt();
+                            }
+    
+                            guardaAgencia.add(agencia);
+                            
                             scan.nextLine();
                             System.out.println("Digite a senha:");
                             senha = scan.nextLine();
