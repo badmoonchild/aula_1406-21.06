@@ -66,7 +66,4 @@ public class Banco {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-
-
-
 }

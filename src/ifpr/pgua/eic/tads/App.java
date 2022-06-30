@@ -73,6 +73,25 @@ public class App {
         return erro;  
     }
 
+    public static boolean comparaconta (int numeroDaConta, ArrayList<Integer> guardaconta) {
+
+        boolean erro = false; 
+
+        for (int i = 0; i < guardaconta.size(); i++){
+
+            if(numeroDaConta.equals(guardaconta.get(i))){ // 
+
+                erro = true; 
+
+            }else{
+
+                erro = false; 
+            }
+        }
+
+        return erro;  
+    }
+
     public static void main(String[] args) throws Exception {
         ContaCorrente conta = null;
         Pessoa pessoa = null;
@@ -153,12 +172,14 @@ public class App {
                             numeroDaConta = scan.nextInt();
                             // c
                             //comparaconta(cpf, guardacpf);
-                            /*while(comparaconta(conta, guardaconta)){
+                            while(comparaconta(numeroDaConta, guardaconta)){
                             System.out.println("Nao foi possivel efetuar, CPF ja existente no banco de cadastro");
-                            cpf = scan.next();
-
+                            numeroDaConta = scan.nextInt();
                             } 
-                            guardacpf.add(cpf); */
+                    
+                            guardaconta.add(numeroDaConta); 
+                            //
+
                             scan.nextLine();
                             System.out.println("Digite a agência:");
                             agencia = scan.nextInt();
